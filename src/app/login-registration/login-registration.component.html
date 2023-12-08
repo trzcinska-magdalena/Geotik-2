@@ -1,0 +1,67 @@
+<mat-tab-group animationDuration="0ms" dynamicHeight>
+  <mat-tab label="Zaloguj">
+
+    <form class="form" (ngSubmit)="onSubmitLogIn()" [formGroup]="formLogIn">
+      <mat-form-field class="full-width">
+        <mat-label>Hasło</mat-label>
+        <input matInput type="password" formControlName="password">
+        <mat-icon class="icon-error" matSuffix
+                  *ngIf="isControlInvalid(formLogIn.controls.password)">
+          error
+        </mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Login/e-mail</mat-label>
+        <input matInput formControlName="email">
+        <mat-icon class="icon-error" matSuffix
+                  *ngIf="isControlInvalid(formLogIn.controls.email)">
+        error
+        </mat-icon>
+        <mat-hint align="end"><a [routerLink]="['/reset']">Zresetuj hasło</a></mat-hint>
+      </mat-form-field>
+
+      <mat-error *ngIf="isControlInvalid(formLogIn.controls.password) || isControlInvalid(formLogIn.controls.email)">Lorem ipsum dolor sit met!</mat-error>
+      
+      <button mat-raised-button color="primary" type="submit">Zaloguj</button>
+    </form>
+
+  </mat-tab>
+  <mat-tab label="Zarejestruj">
+
+    <form class="form" (ngSubmit)="onSubmitSignIn()" [formGroup]="formSignIn">
+
+      <mat-form-field class="full-width">
+        <mat-label>Login/e-mail</mat-label>
+        <input matInput formControlName="email">
+        <mat-icon class="icon-done" matSuffix
+                  *ngIf="isControlValid(formSignIn.controls.email)">
+        done
+        </mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Hasło</mat-label>
+        <input matInput type="password" formControlName="password" (keyup)="passwordStrength()">
+        <mat-icon class="icon-done" matSuffix
+                  *ngIf="isControlValid(formSignIn.controls.password)">
+        done
+        </mat-icon>
+      </mat-form-field>
+
+      <mat-progress-bar mode="determinate" value="{{passwordStrength()}}"></mat-progress-bar>
+
+      <mat-form-field class="full-width" style="margin-top: 20px">
+        <mat-label>Hasło</mat-label>
+        <input class="icon-done" matInput type="password" formControlName="rePassword">
+        <mat-icon matSuffix
+                  [ngStyle]="{'visibility': formSignIn.controls.rePassword.touched && !formSignIn.controls.rePassword.errors  ? 'visible' : 'hidden'}">
+        done
+        </mat-icon>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Zarejestruj</button>
+    </form>
+  </mat-tab>
+</mat-tab-group>
+

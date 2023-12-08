@@ -1,0 +1,15 @@
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/AdobeStock_265997832.jpeg') center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 10px 60px;
+  width: 400px;
+  background-color: #fff;
+}

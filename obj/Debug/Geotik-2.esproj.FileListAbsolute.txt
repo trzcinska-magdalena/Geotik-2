@@ -1,0 +1,2 @@
+C:\Users\trzci\projekty-net\Geotik-2\obj\Debug\Geotik-2.esproj.SuggestedBindingRedirects.cache
+C:\Users\trzci\projekty-net\Geotik-2\obj\Debug\Geotik-2.esproj.CoreCompileInputs.cache
